@@ -1,0 +1,16 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8801/eureka/
+server:
+  port: 8762
+  servlet:
+    context-path: "/provider"
+spring:
+  application:
+    name: service-provider
+  datasource:
+    url: jdbc:mysql://localhost:3306/zhuhanmei?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false&useUnicode=true
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.jdbc.Driver
