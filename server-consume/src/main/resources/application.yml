@@ -9,3 +9,36 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8801/eureka/
+  instance:
+    prefer-ip-address: true
+    # Eureka客户端向服务心跳的时间间隔是1s，默认是30秒
+    lease-renewal-interval-in-seconds: 1
+    # Eureka服务端在收到一次心跳后等待时间上限是2s，默认是90s，超时将剔除该微服务，其实Eureka服务端已经设置了，可能就是也告诉服务提供者一下
+    lease-expiration-duration-in-seconds: 2
+
+
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000 #毫秒
+      #或者设置从不超时
+      #timeout:
+      #  enabled: false
+feign:
+  #替换掉JDK默认HttpURLConnection实现的 Http Client
+  httpclient:
+    enabled: true
+  circuitbreaker:
+    enabled: true
+  client:
+    config:
+      default:
+        #连接超时时间
+        connectTimeout: 5000
+        #读取超时时间
+        readTimeout: 5000

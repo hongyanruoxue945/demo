@@ -9,3 +9,11 @@ eureka:
     fetch-registry: false
     serviceUrl:
         defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  # ******下面的代码用来关闭Eureka服务端的自我保护机制******
+  server:
+    # 关闭自我保护机制，保证不可用的服务被及时剔除
+    enable-self-preservation: false
+    # 如果2秒内没有收到某个微服务的心跳，那就剔除该微服务，单位为毫秒
+    eviction-interval-timer-in-ms: 2000
+
+

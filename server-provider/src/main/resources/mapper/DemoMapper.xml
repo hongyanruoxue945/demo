@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--mapper为根元素，namespace指定了命名空间-->
+<mapper namespace="com.example.serverprovider.mapper.DemoMapper">
+    <!--验证用户登录-->
+    <select id="getUserInfo" resultType="com.example.serverprovider.entity.UserEntity">
+        SELECT * FROM user_t WHERE id = #{id,jdbcType=VARCHAR}
+    </select>
+</mapper>
