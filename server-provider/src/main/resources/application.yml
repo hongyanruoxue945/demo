@@ -15,11 +15,75 @@ server:
 spring:
   application:
     name: service-provider
+#  profiles:
+#    active: dev
   datasource:
     url: jdbc:mysql://localhost:3306/zhuhanmei?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false&useUnicode=true
     username: root
     password: 12345678
     driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:hongyanruoxue945/demo.git # git仓库的地址
+          search-paths: config  # git仓库地址下的相对地址，可以配置多个，用,分割。
+          ignore-local-ssh-settings: true
+          strict-host-key-checking: false
+          private-key: |
+            -----BEGIN RSA PRIVATE KEY-----
+            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
+            -----END RSA PRIVATE KEY-----
+
+        default-label: demo
 # mybatis-plus 配置
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
