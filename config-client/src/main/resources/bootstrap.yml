@@ -1,0 +1,18 @@
+#spring.cloud.config.name=springcloud-config
+#spring.cloud.config.profile=dev
+#spring.cloud.config.label=demo
+#spring.cloud.config.uri=http://localhost:8762/provider/
+spring:
+  cloud:
+    config:
+      label: demo
+      uri: http://localhost:8762/provider/
+      name: springcloud-config
+      profile: dev
+#server.port=8099
+#server.servlet.context-path="/configClient"
+#spring.application.name=config-client
+#spring.cloud.config.discovery.enabled=true
+#spring.cloud.config.discovery.serviceId=service-provider
+#eureka.client.serviceUrl.defaultZone=http://localhost:8801/eureka/
+

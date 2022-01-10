@@ -1,0 +1,12 @@
+server:
+  port: 8084
+  servlet:
+    context-path: "/zuul"
+spring:
+  application:
+    name: zuul
+zuul:
+  routes:
+    baidu:
+      path: /baidu/**
+      url: https://www.baidu.com/

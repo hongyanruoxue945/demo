@@ -1,0 +1,25 @@
+server:
+  port: 8089
+  servlet:
+    context-path: "/configClient"
+spring:
+  application:
+     name: config-client
+#  cloud:
+#    config:
+#      name: springcloud-config
+#      config.profile: dev
+#      config.uri: http://localhost:8762/provider
+#      label: demo
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8801/eureka/
+  instance:
+    prefer-ip-address: true
+    # Eureka客户端向服务心跳的时间间隔是1s，默认是30秒
+    lease-renewal-interval-in-seconds: 1
+    # Eureka服务端在收到一次心跳后等待时间上限是2s，默认是90s，超时将剔除该微服务，其实Eureka服务端已经设置了，可能就是也告诉服务提供者一下
+    lease-expiration-duration-in-seconds: 2
+
+

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.serverprovider.entity.UserEntity;
 import com.example.serverprovider.mapper.DemoMapper;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,9 @@ public class DemoController {
     private String port;
 
     @Resource
+    RedisTemplate redisTemplate;
+
+    @Resource
     DemoMapper demoMapper;
 
 
@@ -25,6 +29,9 @@ public class DemoController {
     public String demo(@RequestBody UserEntity user){
         UserEntity userInfo = demoMapper.getUserInfo(user);
         String result = JSONObject.toJSONString(userInfo);
+        String demo = redisTemplate.opsForValue().get("demo").toString();
+        user.setUserName(demo);
         return result;
     }
+
 }
