@@ -1,13 +1,13 @@
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://120.26.194.177:2181
-#  instance:
-#    prefer-ip-address: true
-#    # Eureka客户端向服务心跳的时间间隔是1s，默认是30秒
-#    lease-renewal-interval-in-seconds: 1
-#    # Eureka服务端在收到一次心跳后等待时间上限是2s，默认是90s，超时将剔除该微服务，其实Eureka服务端已经设置了，可能就是也告诉服务提供者一下
-#    lease-expiration-duration-in-seconds: 2
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    # Eureka客户端向服务心跳的时间间隔是1s，默认是30秒
+    lease-renewal-interval-in-seconds: 1
+    # Eureka服务端在收到一次心跳后等待时间上限是2s，默认是90s，超时将剔除该微服务，其实Eureka服务端已经设置了，可能就是也告诉服务提供者一下
+    lease-expiration-duration-in-seconds: 2
 server:
   port: 8762
   servlet:
@@ -29,12 +29,12 @@ spring:
     url: jdbc:mysql://120.26.194.177:3306/zhuhamei?serverTimezone=GMT%2B8&characterEncoding=utf8&useSSL=false&useUnicode=true
     username: root
     password: 107912@zhmCG
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
-    zookeeper:
-      enabled: true
-      connect-string: 120.26.194.177:2181
-      connection-time-out: 20000
+#    zookeeper:
+#      enabled: true
+#      connect-string: 120.26.194.177:2181
+#      connection-time-out: 20000
     config:
       server:
 #        git:

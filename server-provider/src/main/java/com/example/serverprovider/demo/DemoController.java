@@ -1,6 +1,5 @@
 package com.example.serverprovider.demo;
 
-import com.alibaba.fastjson.JSONObject;
 import com.example.serverprovider.entity.UserEntity;
 import com.example.serverprovider.mapper.DemoMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,12 +25,12 @@ public class DemoController {
 
 
     @PostMapping("/myDemo")
-    public String demo(@RequestBody UserEntity user){
+    public UserEntity demo(@RequestBody UserEntity user){
         UserEntity userInfo = demoMapper.getUserInfo(user);
-        String result = JSONObject.toJSONString(userInfo);
-        String demo = redisTemplate.opsForValue().get("demo").toString();
-        user.setUserName(demo);
-        return result;
+//        String result = JSONObject.toJSONString(userInfo);
+//        String demo = redisTemplate.opsForValue().get("demo").toString();
+//        user.setUserName(demo);
+        return userInfo;
     }
 
 }
